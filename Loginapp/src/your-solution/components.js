@@ -1,60 +1,66 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import blogService from './services'
 import userImg from '../images/user.svg'
+import dangerImg from '../images/triangle.svg'
+import { Link, useHistory } from 'react-router-dom'
 
-export const LoginForm = ({
-  username,
-  setUsername,
-  password,
-  setPassword,
-  setUser,
-  setMessage,
-}) => {
-  const handleLogin = async (event) => {
-    event.preventDefault()
+export const LoginForm = ({ setUser }) => {
+
+  const history = useHistory()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
+  const onHandleLogin = async (event) => {
     try {
-      const user = await blogService.login({
-        username: username,
-        password: password,
+      const userInput = await blogService.login({
+        username: event.username,
+        password: event.password,
       })
-      setUser(user.data)
-      setUsername('')
-      setPassword('')
+      console.log(userInput.data)
+      setUser(userInput.data)
+      history.push('/user')
     } catch (exception) {
-      setUser(null)
-      setMessage('Wrong credentials')
-      setTimeout(() => {
-        setMessage(null)
-      }, 5000)
+      console.log('error', exception)
+      alert('Wrong credentials')
     }
   }
 
   return (
-    <form data-testid='Login_form' onSubmit={handleLogin}>
+    <form onSubmit={handleSubmit(onHandleLogin)}>
       <h1>Welcome back!</h1>
       <img className='loginIcon' src={userImg} alt='user' />
       <h2>Member login</h2>
-      <div className="usernameInput">
+      <div className='usernameInput'>
         username
         <input
-          data-testid='Login_username'
+          className='inputField'
           type='text'
-          value={username}
-          style={{ marginLeft: 10 }}
-          name='Username'
-          onChange={({ target }) => setUsername(target.value)}
+          {...register('username', { required: 'Username is required', })}
         />
+        {errors.username && (
+          <div className="errorMessage">
+            <img src={dangerImg} alt='danger' className='dangerLogo'/>
+            <p className='dangerText'>{errors.username.message}</p>
+          </div>
+        )}
       </div>
-      <div className="passwordInput">
+      <div className='passwordInput'>
         password
         <input
-          data-testid='Login_password'
+          className='inputField'
           type='password'
-          value={password}
-          style={{ marginTop: 10, marginLeft: 13, marginBottom: 10 }}
-          name='Password'
-          onChange={({ target }) => setPassword(target.value)}
+          {...register('password', { required: 'Password is required' })}
         />
+        {errors.password && (
+          <div className="errorMessage">
+            <img src={dangerImg} alt='danger' className='dangerLogo'/>
+            <p className='dangerText'>{errors.password.message}</p>
+          </div>
+        )}
       </div>
       <button
         data-testid='Login_submitButton'
@@ -64,7 +70,99 @@ export const LoginForm = ({
         sign in
       </button>
       <div className='loginText'>or</div>
-      <button className='registerButton'>create account</button>
+      <Link className='registerButton' to={'/register'}> Create account </Link>
     </form>
+  )
+}
+
+export const RegisterForm = () => {
+
+  const history = useHistory()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
+  const onHandleRegister = async (event) => {
+    try {
+      const userInput = await blogService.register({
+        username: event.username,
+        name: event.name,
+        password: event.password,
+      })
+      history.push('/')
+      return userInput
+    } catch (exception) {
+      alert('Error occured in registering user. Try again.')
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onHandleRegister)}>
+      <h1>Create account</h1>
+      <div className='usernameInput'>
+        username
+        <input
+          className='inputField'
+          type='text'
+          {...register('username', { required: 'Username is required', })}
+        />
+        {errors.username && (
+          <div className="errorMessage">
+            <img src={dangerImg} alt='danger' className='dangerLogo'/>
+            <p className='dangerText'>{errors.username.message}</p>
+          </div>
+        )}
+      </div>
+      <div className='nameInput'>
+        name
+        <input
+          className='inputField'
+          type='text'
+          {...register('name', { required: 'Name is required', })}
+        />
+        {errors.name && (
+          <div className="errorMessage">
+            <img src={dangerImg} alt='danger' className='dangerLogo'/>
+            <p className='dangerText'>{errors.name.message}</p>
+          </div>
+        )}
+      </div>
+      <div className='passwordInput'>
+        password
+        <input
+          className='inputField'
+          type='password'
+          {...register('password', { required: 'Password is required' })}
+        />
+        {errors.password && (
+          <div className="errorMessage">
+            <img src={dangerImg} alt='danger' className='dangerLogo'/>
+            <p className='dangerText'>{errors.password.message}</p>
+          </div>
+        )}
+      </div>
+      <button
+        data-testid='Login_submitButton'
+        className='loginButton'
+        type='submit'
+      >
+        create account
+      </button>
+      <div className='loginText'>or</div>
+      Already have one? <Link to={'/'}> Click here </Link>
+    </form>
+  )
+
+}
+
+export const LoginSucceed = ({ user, setUser }) => {
+  return (
+    <div>
+      <div>Welcome to aquarium monitoring, {user?.name}! </div>
+      <Link to={'/'} onClick={() => setUser(null)}>Logout</Link>
+    </div>
   )
 }

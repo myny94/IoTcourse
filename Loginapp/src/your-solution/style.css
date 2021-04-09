@@ -23,11 +23,13 @@ form {
 .registerButton {
     border-radius: 10%;
     border: none;
-    width: 170px;
+    width: 150px;
     padding: 10px;
     white-space: nowrap;
     font-size: 18px;
     margin: 10px;
+    text-align: center;
+    background-color:lightgray;
 }
 
 .loginButton:hover, .registerButton:hover {
@@ -35,13 +37,31 @@ form {
 }
 
 .loginText {
-    
+    font-weight: bold;
+    font-size: 15px;
 }
 
-.usernameInput, .passwordInput {
+.usernameInput, .passwordInput, .nameInput {
     font-size: 20px;
 }
 
 .usernameInput input, .passwordInput input {
     height: 20px;
+}
+
+.dangerText {
+    color: #d9534f
+}
+
+.dangerLogo {
+    width: 10px;
+    margin-right: 10px;
+}
+
+.errorMessage {
+    display: flex;
+}
+
+.inputField {
+    margin-left: 10px;
 }

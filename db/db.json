@@ -5,6 +5,18 @@
       "name": "ned",
       "passwordHash": "$2b$10$u8sN8IyLM.PWsbF9sa2fKuU0sX6lHvCNdPs5v/rGWJkXgfrSPKiTC",
       "id": 1
+    },
+    {
+      "username": "admin",
+      "name": "admin user",
+      "passwordHash": "$2b$10$Po9c/iyIDuNQ/fuINokG6O2tT3hGsq0L4A5t1JxWYVOzlQy1agD5G",
+      "id": 2
+    },
+    {
+      "username": "test11",
+      "name": "test user",
+      "passwordHash": "$2b$10$nj/mTKKz7Tm3FLY3icTkFeQoe/HMW0IsmUNhNq.3XRJSR5QiTUSIW",
+      "id": 3
     }
   ]
 }
