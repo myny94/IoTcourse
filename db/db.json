@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "username": "ned",
+      "name": "ned",
+      "passwordHash": "$2b$10$u8sN8IyLM.PWsbF9sa2fKuU0sX6lHvCNdPs5v/rGWJkXgfrSPKiTC",
+      "id": 1
+    }
+  ]
+}
