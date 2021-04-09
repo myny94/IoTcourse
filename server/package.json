@@ -1,14 +1,13 @@
 {
-  "name": "bloglist-server",
+  "name": "fishiot-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "nayeong song",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
@@ -21,5 +20,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  }
+  },
+  "description": ""
 }
