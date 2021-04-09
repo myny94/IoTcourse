@@ -8,6 +8,7 @@ services:
             - network1
         environment:
             - PORT=3003
+            - SECRET=adfaefeq176jyyjhy6hy6
     db:
         build: ./db/
         ports:
