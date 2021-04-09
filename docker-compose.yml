@@ -6,6 +6,8 @@ services:
             - "3003:3003"
         networks:
             - network1
+        environment:
+            - PORT=3003
     db:
         build: ./db/
         ports:
