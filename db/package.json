@@ -4,7 +4,7 @@
   "description": "server for fish iot",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --port=3004 db.json",
+    "start": "json-server -H 0.0.0.0 --port=3004 db.json",
     "watch": "json-server --watch --port=3004 db.json"
   },
   "keywords": [],

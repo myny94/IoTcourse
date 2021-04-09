@@ -47,5 +47,5 @@
     "cross-env": "^7.0.3",
     "eslint-plugin-jest": "^24.3.2"
   },
-  "proxy": "http://localhost:3003"
+  "proxy": "http://backend:3003"
 }

@@ -2,7 +2,7 @@ const router = require('express').Router()
 const axios = require('axios');
 const bcrypt = require('bcrypt')
 
-const usersURL = 'http://localhost:3004/users';
+const usersURL = 'http://db:3004/users';
 
 
 router.get('/', async (request, response) => {
