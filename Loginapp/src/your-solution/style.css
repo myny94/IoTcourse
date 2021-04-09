@@ -1,0 +1,47 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.loginIcon {
+    width: 100px;
+}
+
+.loginButton {
+    border-radius: 10%;
+    background-color: gold;
+    width: 170px;
+    border: none;
+    padding: 10px;
+    white-space: nowrap;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.registerButton {
+    border-radius: 10%;
+    border: none;
+    width: 170px;
+    padding: 10px;
+    white-space: nowrap;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.loginButton:hover, .registerButton:hover {
+    background-color: grey;
+}
+
+.loginText {
+    
+}
+
+.usernameInput, .passwordInput {
+    font-size: 20px;
+}
+
+.usernameInput input, .passwordInput input {
+    height: 20px;
+}
