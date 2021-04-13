@@ -4,6 +4,7 @@ import blogService from './services'
 import userImg from '../images/user.svg'
 import dangerImg from '../images/triangle.svg'
 import { Link, useHistory } from 'react-router-dom'
+import firebase from "./firebase";
 
 export const LoginForm = ({ setUser }) => {
 
@@ -159,9 +160,41 @@ export const RegisterForm = () => {
 }
 
 export const LoginSucceed = ({ user, setUser }) => {
+
+  const [moisture, setMoist] = useState(0);
+  
+  useEffect(() => {
+    const getValue = firebase.database().ref("Ho Chi Minh City/Moisture");
+    getValue.on("value", snapshot => {
+      let value = snapshot.val();
+      // Whenever the value changes on the server, it is also reset on the running app through the variable
+      setMoist(value.toFixed(2));
+    });
+  }, []);
+
+  const [temperature, setTemp] = useState(0);
+  
+  useEffect(() => {
+    const getValue = firebase.database().ref("Ho Chi Minh City/Temperature");
+    getValue.on("value", snapshot => {
+      let value = snapshot.val();
+      // Whenever the value changes on the server, it is also reset on the running app through the variable
+      setTemp(value.toFixed(2));
+    });
+  }, []);
+
   return (
     <div>
       <div>Welcome to aquarium monitoring, {user?.name}! </div>
+
+      <div className="displayValue">
+        <span>Moisture: {moisture} %</span>
+      </div>
+
+      <div className="displayValue2">
+        <span>Temperature: {temperature} *C</span>
+      </div>
+
       <Link to={'/'} onClick={() => setUser(null)}>Logout</Link>
     </div>
   )

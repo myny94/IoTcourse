@@ -65,3 +65,33 @@ form {
 .inputField {
     margin-left: 10px;
 }
+
+.displayLvalue {
+    grid-column: 2/4;
+    grid-row: 1;
+  }
+  
+  .displayValue span {
+    font-family: "Josefin Sans", sans-serif;
+    padding-left: 20px;
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .displayLvalue2 {
+    grid-column: 2/4;
+    grid-row: 1;
+  }
+  
+  .displayValue2 span {
+    font-family: "Josefin Sans", sans-serif;
+    padding-left: 20px;
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+  }
