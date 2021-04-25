@@ -14,14 +14,8 @@ import ReactDOM from 'react-dom'
   let module
 
   switch (solution) {
-  case 'solution-to-review-1':
-    module = await import('./reviews/solution-to-review-1/app')
-    break
-  case 'solution-to-review-2':
-    module = await import('./reviews/solution-to-review-2/app')
-    break
   case 'your-solution': default:
-    module = await import('./your-solution/app')
+    module = await import('./src/app')
   }
 
   const { App } = module

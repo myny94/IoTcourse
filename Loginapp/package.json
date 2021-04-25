@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "joi": "^17.4.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
@@ -15,15 +16,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "review-1": "cross-env REACT_APP_SOLUTION=solution-to-review-1 react-scripts start",
-    "review-2": "cross-env REACT_APP_SOLUTION=solution-to-review-2 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint ./src/your-solution",
-    "lint-review-1": "eslint ./src/reviews/solution-to-review-1",
-    "lint-review-2": "eslint ./src/reviews/solution-to-review-2",
-    "eslint": "eslint ."
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
