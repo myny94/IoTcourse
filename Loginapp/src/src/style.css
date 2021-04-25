@@ -65,3 +65,28 @@ form {
 .inputField {
     margin-left: 10px;
 }
+
+.treeImages {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.treeLogo {
+    width: 200px;
+}
+
+.mainText {
+    margin: 20px;
+}
+
+.treeText {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.contributors {
+    font-weight: bold;
+    font-size: 30px;
+}
